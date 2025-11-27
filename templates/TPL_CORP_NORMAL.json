@@ -1,0 +1,70 @@
+{
+  "scenario_id": "TPL_CORP_NORMAL",
+  "scenario_name": "법인_정상환급",
+  "description": "법인 정상 환급 시나리오 - corp_load_calc용",
+  "user_info": {
+    "name": "홍길동",
+    "phone": "01012345678",
+    "birthday": "19800101",
+    "cert_type": "kakao"
+  },
+  "taxpayer_info": {
+    "name": "(주)테스트기업",
+    "tin": "123456789012345678",
+    "resno": "8001011234567",
+    "reg_no": "1234567890",
+    "biz_type": "individual_biz",
+    "tax_office": "강남세무서",
+    "officer_name": "김세무",
+    "officer_phone": "02-1234-5678"
+  },
+  "refund_result": {
+    "총환급세액": -5000000,
+    "소득세환급액": 4500000,
+    "지방소득세환급액": 500000,
+    "국세환급가산금": 50000,
+    "지방세환급가산금": 5000,
+    "터칭콜검토필요": {},
+    "고용보험조회필요": false,
+    "계산결과": {
+      "총납부세액": -5000000,
+      "미래절세효과": 2000000
+    },
+    "부가정보": {
+      "대표자명": "홍길동",
+      "사업장주소": "서울시 강남구 테헤란로 123",
+      "관할세무서": "강남세무서",
+      "담당공무원": "김세무",
+      "마지막연도매출액": 1500000000,
+      "마지막연도당기순이익": 150000000
+    }
+  },
+  "version_info": {
+    "연도": "2024",
+    "버전": "v1.0.0"
+  },
+  "load_config": {
+    "success": true,
+    "delay_seconds": 1.0,
+    "progress_config": {
+      "enabled": true,
+      "queue_name": "refund-search.fifo",
+      "send_on_complete": true,
+      "send_on_error": true,
+      "steps": [
+        {"step_name": "법인세 신고서 수집 시작", "progress": "1"},
+        {"step_name": "납세자 정보 수집 시작", "progress": "80"},
+        {"step_name": "환급금 계산 시작", "progress": "95"},
+        {"step_name": "환급금 계산 완료", "progress": "100"}
+      ]
+    }
+  },
+  "calc_config": {
+    "success": true,
+    "delay_seconds": 0.5
+  },
+  "check_config": {
+    "success": true,
+    "delay_seconds": 0.3
+  }
+}

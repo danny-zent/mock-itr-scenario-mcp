@@ -1,0 +1,46 @@
+{
+  "scenario_id": "TPL_ERR_LOGIN",
+  "scenario_name": "에러_홈택스_로그인실패",
+  "description": "홈택스 로그인 실패 케이스. check 단계에서 로그인오류 반환. ID/PW 또는 인증 정보 오류.",
+  "user_info": {
+    "name": "한로그",
+    "phone": "01011112222",
+    "birthday": "19780303",
+    "cert_type": "kakao"
+  },
+  "taxpayer_info": {
+    "tin": "880888901234567890",
+    "name": "한로그",
+    "resno": "7803031234567",
+    "reg_no": null,
+    "tax_office": "영등포",
+    "officer_name": null,
+    "officer_phone": null
+  },
+  "biz_type": "non_biz",
+  "refund_result": {
+    "총환급세액": 0
+  },
+  "version_info": {
+    "연도": "2024",
+    "버전": "1.5"
+  },
+  "cert_request_config": {
+    "success": true,
+    "delay_seconds": 0.5
+  },
+  "cert_response_config": {
+    "success": true,
+    "delay_seconds": 1.0
+  },
+  "check_config": {
+    "success": false,
+    "delay_seconds": 0.5,
+    "error_type": "로그인오류",
+    "error_msg": "홈택스 아이디 또는 비밀번호가 올바르지 않습니다."
+  },
+  "load_config": {
+    "success": true,
+    "delay_seconds": 1.5
+  }
+}

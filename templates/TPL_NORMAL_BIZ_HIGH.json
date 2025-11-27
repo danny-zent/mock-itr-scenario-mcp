@@ -1,0 +1,76 @@
+{
+  "scenario_id": "TPL_NORMAL_BIZ_HIGH",
+  "scenario_name": "정상_개인사업자_고액환급",
+  "description": "개인사업자 500만원 이상 고액 환급 정상 케이스. 창업중소기업세액감면, 고용증대, 사회보험료 세액공제 포함.",
+  "user_info": {
+    "name": "김사업",
+    "phone": "01012345678",
+    "birthday": "19800515",
+    "cert_type": "kakao"
+  },
+  "taxpayer_info": {
+    "tin": "110111234567890123",
+    "name": "김사업",
+    "resno": "8005151234567",
+    "reg_no": "1234567890",
+    "tax_office": "강남",
+    "officer_name": "박담당",
+    "officer_phone": "02-1234-5678"
+  },
+  "biz_type": "individual_biz",
+  "refund_result": {
+    "총환급세액": 5500000,
+    "종합소득세환급세액": 5000000,
+    "지방세환급세액": 500000,
+    "창중감_환급액": 2000000,
+    "중특감_환급액": 500000,
+    "고용증대_환급액": 1500000,
+    "사회보험료_환급액": 1000000,
+    "통합고용_환급액": 500000,
+    "refundAmt_SVI": 1000000.0,
+    "감면Only추가구제": false,
+    "감면Only환급가능금액": 0.0,
+    "고용보험조회필요": false,
+    "전자신고가능여부": true,
+    "최근계산연도": 2024,
+    "터칭콜반영": false,
+    "터칭콜검토필요": {
+      "2019": false,
+      "2020": false,
+      "2021": false,
+      "2022": false,
+      "2023": false,
+      "2024": false
+    },
+    "사업장": {
+      "2024": {
+        "1234567890": {
+          "사업자등록번호": "123-45-67890",
+          "상호": "김사업상점",
+          "업종": "도소매업",
+          "개업일": "2020-01-15"
+        }
+      }
+    }
+  },
+  "version_info": {
+    "연도": "2024",
+    "버전": "1.5"
+  },
+  "cert_request_config": {
+    "success": true,
+    "delay_seconds": 0.5
+  },
+  "cert_response_config": {
+    "success": true,
+    "delay_seconds": 1.0
+  },
+  "check_config": {
+    "success": true,
+    "delay_seconds": 0.5
+  },
+  "load_config": {
+    "success": true,
+    "delay_seconds": 2.0
+  }
+}

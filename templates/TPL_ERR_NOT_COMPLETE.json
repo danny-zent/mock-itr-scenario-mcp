@@ -1,0 +1,47 @@
+{
+  "scenario_id": "TPL_ERR_NOT_COMPLETE",
+  "scenario_name": "에러_간편인증_미완료",
+  "description": "사용자가 휴대폰에서 간편인증을 완료하지 않은 케이스. cert_response 단계에서 NOT_COMPLETE 에러 반환.",
+  "user_info": {
+    "name": "윤미완",
+    "phone": "01099990000",
+    "birthday": "19920202",
+    "cert_type": "naver"
+  },
+  "taxpayer_info": {
+    "tin": "770777890123456789",
+    "name": "윤미완",
+    "resno": "9202021234567",
+    "reg_no": null,
+    "tax_office": "종로",
+    "officer_name": null,
+    "officer_phone": null
+  },
+  "biz_type": "non_biz",
+  "refund_result": {
+    "총환급세액": 0
+  },
+  "version_info": {
+    "연도": "2024",
+    "버전": "1.5"
+  },
+  "cert_request_config": {
+    "success": true,
+    "delay_seconds": 0.5
+  },
+  "cert_response_config": {
+    "success": false,
+    "delay_seconds": 0.5,
+    "error_type": "NOT_COMPLETE",
+    "error_key": "default",
+    "error_msg": null
+  },
+  "check_config": {
+    "success": true,
+    "delay_seconds": 0.5
+  },
+  "load_config": {
+    "success": true,
+    "delay_seconds": 1.5
+  }
+}

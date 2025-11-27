@@ -1,0 +1,46 @@
+{
+  "scenario_id": "TPL_ERR_NO_TAX_RETURN",
+  "scenario_name": "에러_종소세신고내역없음",
+  "description": "종합소득세 신고 내역이 없는 사용자. load 단계에서 에러 반환.",
+  "user_info": {
+    "name": "정신고",
+    "phone": "01077778888",
+    "birthday": "19950505",
+    "cert_type": "naver"
+  },
+  "taxpayer_info": {
+    "tin": "550555678901234567",
+    "name": "정신고",
+    "resno": "9505051234567",
+    "reg_no": null,
+    "tax_office": "마포",
+    "officer_name": null,
+    "officer_phone": null
+  },
+  "biz_type": "non_biz",
+  "refund_result": {
+    "총환급세액": 0
+  },
+  "version_info": {
+    "연도": "2024",
+    "버전": "1.5"
+  },
+  "cert_request_config": {
+    "success": true,
+    "delay_seconds": 0.5
+  },
+  "cert_response_config": {
+    "success": true,
+    "delay_seconds": 1.0
+  },
+  "check_config": {
+    "success": true,
+    "delay_seconds": 0.5
+  },
+  "load_config": {
+    "success": false,
+    "delay_seconds": 1.0,
+    "error_type": "종소세신고내역없음",
+    "error_msg": "종합소득세 신고 내역이 없습니다. 신고 후 다시 시도해 주세요."
+  }
+}

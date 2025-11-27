@@ -1,0 +1,56 @@
+{
+  "scenario_id": "TPL_ERR_SESSION_EXPIRED",
+  "scenario_name": "에러_세션만료",
+  "description": "중복접속 등으로 세션이 만료된 케이스. error.type=세션만료",
+  "user_info": {
+    "name": "이순신",
+    "phone": "01098765432",
+    "birthday": "19850301",
+    "cert_type": "kakao"
+  },
+  "taxpayer_info": {
+    "tin": "000000153302112048",
+    "name": "이순신",
+    "resno": "8503011234567",
+    "reg_no": null,
+    "tax_office": "용산",
+    "officer_name": null,
+    "officer_phone": null
+  },
+  "biz_type": "non_biz",
+  "refund_result": {
+    "총환급세액": 0
+  },
+  "version_info": {
+    "연도": "2024",
+    "버전": "2.2.6"
+  },
+  "cert_request_config": {
+    "success": true,
+    "delay_seconds": 0.1
+  },
+  "cert_response_config": {
+    "success": true,
+    "delay_seconds": 0.1
+  },
+  "check_config": {
+    "success": true,
+    "delay_seconds": 0.1
+  },
+  "load_config": {
+    "success": false,
+    "delay_seconds": 0.1,
+    "error_type": "세션만료",
+    "error_msg": "중복접속으로 세션이 만료되었습니다.",
+    "progress_config": {
+      "enabled": true,
+      "queue_name": "refund-search.fifo",
+      "send_on_complete": true,
+      "send_on_error": true,
+      "steps": [
+        {"step_name": "사업체 목록 수집 시작", "progress": "1", "delay_seconds": 0.0},
+        {"step_name": "환급금 계산 시작", "progress": "95", "delay_seconds": 0.0}
+      ]
+    }
+  }
+}

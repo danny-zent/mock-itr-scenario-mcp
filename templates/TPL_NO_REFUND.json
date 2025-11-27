@@ -1,0 +1,76 @@
+{
+  "scenario_id": "TPL_NO_REFUND",
+  "scenario_name": "환급없음_0원",
+  "description": "환급 대상이 아닌 케이스. 총 환급세액 0원.",
+  "user_info": {
+    "name": "최무환",
+    "phone": "01066667777",
+    "birthday": "19750815",
+    "cert_type": "kakao"
+  },
+  "taxpayer_info": {
+    "tin": "440444567890123456",
+    "name": "최무환",
+    "resno": "7508151234567",
+    "reg_no": "3456789012",
+    "tax_office": "송파",
+    "officer_name": "정담당",
+    "officer_phone": "02-4567-8901"
+  },
+  "biz_type": "individual_biz",
+  "refund_result": {
+    "총환급세액": 0,
+    "종합소득세환급세액": 0,
+    "지방세환급세액": 0,
+    "창중감_환급액": 0,
+    "중특감_환급액": 0,
+    "고용증대_환급액": 0,
+    "사회보험료_환급액": 0,
+    "통합고용_환급액": 0,
+    "refundAmt_SVI": 0.0,
+    "감면Only추가구제": false,
+    "감면Only환급가능금액": 0.0,
+    "고용보험조회필요": false,
+    "전자신고가능여부": true,
+    "최근계산연도": 2024,
+    "터칭콜반영": false,
+    "터칭콜검토필요": {
+      "2019": false,
+      "2020": false,
+      "2021": false,
+      "2022": false,
+      "2023": false,
+      "2024": false
+    },
+    "사업장": {
+      "2024": {
+        "3456789012": {
+          "사업자등록번호": "345-67-89012",
+          "상호": "최무환상회",
+          "업종": "제조업",
+          "개업일": "2015-03-01"
+        }
+      }
+    }
+  },
+  "version_info": {
+    "연도": "2024",
+    "버전": "1.5"
+  },
+  "cert_request_config": {
+    "success": true,
+    "delay_seconds": 0.5
+  },
+  "cert_response_config": {
+    "success": true,
+    "delay_seconds": 1.0
+  },
+  "check_config": {
+    "success": true,
+    "delay_seconds": 0.5
+  },
+  "load_config": {
+    "success": true,
+    "delay_seconds": 1.5
+  }
+}

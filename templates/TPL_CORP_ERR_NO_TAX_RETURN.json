@@ -1,0 +1,42 @@
+{
+  "scenario_id": "TPL_CORP_ERR_NO_TAX_RETURN",
+  "scenario_name": "법인_신고내역없음",
+  "description": "법인 법인세 신고내역 없음 에러 시나리오",
+  "user_info": {
+    "name": "김미신",
+    "phone": "01098765432",
+    "birthday": "19850101",
+    "cert_type": "kakao"
+  },
+  "taxpayer_info": {
+    "name": "(주)미신고기업",
+    "tin": "987654321098765432",
+    "resno": "8501011234567",
+    "reg_no": "9876543210",
+    "biz_type": "individual_biz",
+    "tax_office": "역삼세무서"
+  },
+  "refund_result": {
+    "총환급세액": 0
+  },
+  "version_info": {
+    "연도": "2024",
+    "버전": "v1.0.0"
+  },
+  "load_config": {
+    "success": false,
+    "delay_seconds": 0.5,
+    "error_type": "종소세신고내역없음",
+    "error_msg": "법인세 신고 내역이 없습니다.",
+    "progress_config": {
+      "enabled": true,
+      "queue_name": "refund-search.fifo",
+      "send_on_complete": true,
+      "send_on_error": true
+    }
+  },
+  "check_config": {
+    "success": true,
+    "delay_seconds": 0.3
+  }
+}

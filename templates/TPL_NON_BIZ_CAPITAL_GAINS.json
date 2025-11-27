@@ -1,0 +1,58 @@
+{
+  "scenario_id": "TPL_NON_BIZ_CAPITAL_GAINS",
+  "scenario_name": "비사업자_양도세환급",
+  "description": "비사업자이면서 양도소득세 환급이 있는 경우. 사업자없음오류 반환 + extra.tritx_calc_result에 양도세 환급액 포함.",
+  
+  "user_info": {
+    "name": "김영욱",
+    "phone": "01033334444",
+    "birthday": "19641101",
+    "cert_type": "kakao"
+  },
+  
+  "taxpayer_info": {
+    "name": "김영욱",
+    "tin": "000000154101623501",
+    "resno": "6411011234567",
+    "reg_no": ""
+  },
+  
+  "biz_type": "non_biz",
+  
+  "refund_result": {
+    "총환급세액": 0,
+    "cookies": "mock-session-cookies-capital-gains"
+  },
+  
+  "cert_config": {
+    "success": true,
+    "delay": 0.5,
+    "token_expires_seconds": 300
+  },
+  
+  "check_config": {
+    "success": true,
+    "delay": 0.5
+  },
+  
+  "load_config": {
+    "success": false,
+    "delay": 1.0,
+    "error_type": "사업자없음오류",
+    "error_msg": "경정청구 기간 내 사업자없음",
+    "extra_data": {
+      "tritx_calc_result": {
+        "tri_rfnd_amt": 11761635,
+        "txpr_nm": "김영욱",
+        "txpr_bhdt": "641101",
+        "year": "2024",
+        "zflux_version": "2.2.6"
+      }
+    }
+  },
+  
+  "calc_config": {
+    "success": true,
+    "delay": 0.5
+  }
+}

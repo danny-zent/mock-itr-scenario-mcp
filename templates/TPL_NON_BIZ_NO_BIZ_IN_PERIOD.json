@@ -1,0 +1,58 @@
+{
+  "scenario_id": "TPL_NON_BIZ_NO_BIZ_IN_PERIOD",
+  "scenario_name": "비사업자_경정청구기간내없음",
+  "description": "비사업자이면서 경정청구 기간 내 사업자가 없는 경우. 두 번째로 흔한 에러 메시지 유형 (24.0%).",
+  
+  "user_info": {
+    "name": "강지은",
+    "phone": "01012345678",
+    "birthday": "19741005",
+    "cert_type": "kakao"
+  },
+  
+  "taxpayer_info": {
+    "name": "강지은",
+    "tin": "000000153302130700",
+    "resno": "7410051234567",
+    "reg_no": ""
+  },
+  
+  "biz_type": "non_biz",
+  
+  "refund_result": {
+    "총환급세액": 0,
+    "cookies": "mock-session-cookies-non-biz"
+  },
+  
+  "cert_config": {
+    "success": true,
+    "delay": 0.5,
+    "token_expires_seconds": 300
+  },
+  
+  "check_config": {
+    "success": true,
+    "delay": 0.5
+  },
+  
+  "load_config": {
+    "success": false,
+    "delay": 1.0,
+    "error_type": "사업자없음오류",
+    "error_msg": "경정청구 기간 내 사업자없음",
+    "extra_data": {
+      "tritx_calc_result": {
+        "tri_rfnd_amt": 0,
+        "txpr_nm": "강지은",
+        "txpr_bhdt": "741005",
+        "year": "2024",
+        "zflux_version": "2.2.6"
+      }
+    }
+  },
+  
+  "calc_config": {
+    "success": true,
+    "delay": 0.5
+  }
+}

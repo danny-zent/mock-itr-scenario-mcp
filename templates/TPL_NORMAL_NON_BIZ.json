@@ -1,0 +1,67 @@
+{
+  "scenario_id": "TPL_NORMAL_NON_BIZ",
+  "scenario_name": "정상_비사업자_환급",
+  "description": "비사업자(근로소득자) 정상 환급 케이스. 연말정산 추가 환급.",
+  "user_info": {
+    "name": "박직장",
+    "phone": "01055551234",
+    "birthday": "19900101",
+    "cert_type": "kakao"
+  },
+  "taxpayer_info": {
+    "tin": "330333456789012345",
+    "name": "박직장",
+    "resno": "9001011234567",
+    "reg_no": null,
+    "tax_office": "역삼",
+    "officer_name": "이담당",
+    "officer_phone": "02-3456-7890"
+  },
+  "biz_type": "non_biz",
+  "refund_result": {
+    "총환급세액": 250000,
+    "종합소득세환급세액": 227000,
+    "지방세환급세액": 23000,
+    "창중감_환급액": null,
+    "중특감_환급액": null,
+    "고용증대_환급액": null,
+    "사회보험료_환급액": null,
+    "통합고용_환급액": null,
+    "refundAmt_SVI": null,
+    "감면Only추가구제": false,
+    "감면Only환급가능금액": 0.0,
+    "고용보험조회필요": false,
+    "전자신고가능여부": true,
+    "최근계산연도": 2024,
+    "터칭콜반영": false,
+    "터칭콜검토필요": {
+      "2019": false,
+      "2020": false,
+      "2021": false,
+      "2022": false,
+      "2023": false,
+      "2024": false
+    },
+    "사업장": {}
+  },
+  "version_info": {
+    "연도": "2024",
+    "버전": "1.5"
+  },
+  "cert_request_config": {
+    "success": true,
+    "delay_seconds": 0.5
+  },
+  "cert_response_config": {
+    "success": true,
+    "delay_seconds": 1.0
+  },
+  "check_config": {
+    "success": true,
+    "delay_seconds": 0.5
+  },
+  "load_config": {
+    "success": true,
+    "delay_seconds": 1.5
+  }
+}

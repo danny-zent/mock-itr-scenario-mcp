@@ -1,0 +1,58 @@
+{
+  "scenario_id": "TPL_NON_BIZ_NOT_ELIGIBLE",
+  "scenario_name": "비사업자_변경대상아님",
+  "description": "비사업자이면서 사업자 변경대상이 아닌 경우. 가장 흔한 에러 메시지 유형 (59.2%).",
+  
+  "user_info": {
+    "name": "윤명진",
+    "phone": "01012345678",
+    "birthday": "19650901",
+    "cert_type": "kakao"
+  },
+  
+  "taxpayer_info": {
+    "name": "윤명진",
+    "tin": "000000154401673180",
+    "resno": "6509011234567",
+    "reg_no": ""
+  },
+  
+  "biz_type": "non_biz",
+  
+  "refund_result": {
+    "총환급세액": 0,
+    "cookies": "mock-session-cookies-non-biz"
+  },
+  
+  "cert_config": {
+    "success": true,
+    "delay": 0.5,
+    "token_expires_seconds": 300
+  },
+  
+  "check_config": {
+    "success": true,
+    "delay": 0.5
+  },
+  
+  "load_config": {
+    "success": false,
+    "delay": 1.0,
+    "error_type": "사업자없음오류",
+    "error_msg": "처리중 예외가 발생하였습니다. [ 사업자 변경대상이 아님 ]",
+    "extra_data": {
+      "tritx_calc_result": {
+        "tri_rfnd_amt": 0,
+        "txpr_nm": "윤명진",
+        "txpr_bhdt": "650901",
+        "year": "2024",
+        "zflux_version": "2.2.6"
+      }
+    }
+  },
+  
+  "calc_config": {
+    "success": true,
+    "delay": 0.5
+  }
+}

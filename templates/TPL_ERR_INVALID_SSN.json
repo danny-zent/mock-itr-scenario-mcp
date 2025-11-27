@@ -1,0 +1,56 @@
+{
+  "scenario_id": "TPL_ERR_INVALID_SSN",
+  "scenario_name": "에러_주민번호오류",
+  "description": "주민등록번호 검증 실패. error.type=주민번호오류",
+  "user_info": {
+    "name": "김철수",
+    "phone": "01011112222",
+    "birthday": "19990101",
+    "cert_type": "kakao"
+  },
+  "taxpayer_info": {
+    "tin": "000000153102226685",
+    "name": "김철수",
+    "resno": "9901011234567",
+    "reg_no": null,
+    "tax_office": "성남",
+    "officer_name": null,
+    "officer_phone": null
+  },
+  "biz_type": "non_biz",
+  "refund_result": {
+    "총환급세액": 0
+  },
+  "version_info": {
+    "연도": "2024",
+    "버전": "2.2.6"
+  },
+  "cert_request_config": {
+    "success": true,
+    "delay_seconds": 0.1
+  },
+  "cert_response_config": {
+    "success": true,
+    "delay_seconds": 0.1
+  },
+  "check_config": {
+    "success": true,
+    "delay_seconds": 0.1
+  },
+  "load_config": {
+    "success": false,
+    "delay_seconds": 0.1,
+    "error_type": "주민번호오류",
+    "error_msg": "사업자등록번호/주민등록번호을(를) 확인하세요.",
+    "progress_config": {
+      "enabled": true,
+      "queue_name": "refund-search.fifo",
+      "send_on_complete": true,
+      "send_on_error": true,
+      "steps": [
+        {"step_name": "사업체 목록 수집 시작", "progress": "1", "delay_seconds": 0.0},
+        {"step_name": "환급금 계산 시작", "progress": "95", "delay_seconds": 0.0}
+      ]
+    }
+  }
+}

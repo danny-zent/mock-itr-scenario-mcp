@@ -1,0 +1,47 @@
+{
+  "scenario_id": "TPL_ERR_AUTH_EXPIRED",
+  "scenario_name": "에러_간편인증_토큰만료",
+  "description": "간편인증 토큰이 만료된 케이스. cert_response 단계에서 EXPIRED 에러 반환.",
+  "user_info": {
+    "name": "강만료",
+    "phone": "01088889999",
+    "birthday": "19880808",
+    "cert_type": "kakao"
+  },
+  "taxpayer_info": {
+    "tin": "660666789012345678",
+    "name": "강만료",
+    "resno": "8808081234567",
+    "reg_no": null,
+    "tax_office": "용산",
+    "officer_name": null,
+    "officer_phone": null
+  },
+  "biz_type": "non_biz",
+  "refund_result": {
+    "총환급세액": 0
+  },
+  "version_info": {
+    "연도": "2024",
+    "버전": "1.5"
+  },
+  "cert_request_config": {
+    "success": true,
+    "delay_seconds": 0.5
+  },
+  "cert_response_config": {
+    "success": false,
+    "delay_seconds": 0.5,
+    "error_type": "EXPIRED",
+    "error_key": "token_expired",
+    "error_msg": null
+  },
+  "check_config": {
+    "success": true,
+    "delay_seconds": 0.5
+  },
+  "load_config": {
+    "success": true,
+    "delay_seconds": 1.5
+  }
+}

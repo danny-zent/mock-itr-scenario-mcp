@@ -1,0 +1,58 @@
+{
+  "scenario_id": "TPL_NON_BIZ_NO_REFUND",
+  "scenario_name": "에러_비사업자_환급없음",
+  "description": "비사업자이면서 양도세 환급액 0원. load 단계에서 '사업자없음오류' 반환 + extra.tritx_calc_result 포함.",
+  
+  "user_info": {
+    "name": "박수오",
+    "phone": "01055556666",
+    "birthday": "19920701",
+    "cert_type": "kakao"
+  },
+  
+  "taxpayer_info": {
+    "name": "박수오",
+    "tin": "000000153502880521",
+    "resno": "9207011234567",
+    "reg_no": ""
+  },
+  
+  "biz_type": "non_biz",
+  
+  "refund_result": {
+    "총환급세액": 0,
+    "cookies": "mock-session-cookies-non-biz-no-refund"
+  },
+  
+  "cert_config": {
+    "success": true,
+    "delay": 0.5,
+    "token_expires_seconds": 300
+  },
+  
+  "check_config": {
+    "success": true,
+    "delay": 0.5
+  },
+  
+  "load_config": {
+    "success": false,
+    "delay": 1.0,
+    "error_type": "사업자없음오류",
+    "error_msg": "환급대상사업자아님",
+    "extra_data": {
+      "tritx_calc_result": {
+        "tri_rfnd_amt": 0,
+        "txpr_nm": "박수오",
+        "txpr_bhdt": "920701",
+        "year": "2024",
+        "zflux_version": "2.2.6"
+      }
+    }
+  },
+  
+  "calc_config": {
+    "success": true,
+    "delay": 0.5
+  }
+}

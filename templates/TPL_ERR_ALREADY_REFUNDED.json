@@ -1,0 +1,56 @@
+{
+  "scenario_id": "TPL_ERR_ALREADY_REFUNDED",
+  "scenario_name": "에러_기환급자",
+  "description": "이미 해당 연도에 환급을 받은 사용자. error.type=기환급자",
+  "user_info": {
+    "name": "홍길동",
+    "phone": "01012345678",
+    "birthday": "19901215",
+    "cert_type": "kakao"
+  },
+  "taxpayer_info": {
+    "tin": "000000154202365109",
+    "name": "홍길동",
+    "resno": "9012151234567",
+    "reg_no": null,
+    "tax_office": "강남",
+    "officer_name": null,
+    "officer_phone": null
+  },
+  "biz_type": "non_biz",
+  "refund_result": {
+    "총환급세액": 0
+  },
+  "version_info": {
+    "연도": "2024",
+    "버전": "2.2.6"
+  },
+  "cert_request_config": {
+    "success": true,
+    "delay_seconds": 0.1
+  },
+  "cert_response_config": {
+    "success": true,
+    "delay_seconds": 0.1
+  },
+  "check_config": {
+    "success": true,
+    "delay_seconds": 0.1
+  },
+  "load_config": {
+    "success": false,
+    "delay_seconds": 0.1,
+    "error_type": "기환급자",
+    "error_msg": "2024",
+    "progress_config": {
+      "enabled": true,
+      "queue_name": "refund-search.fifo",
+      "send_on_complete": true,
+      "send_on_error": true,
+      "steps": [
+        {"step_name": "사업체 목록 수집 시작", "progress": "1", "delay_seconds": 0.0},
+        {"step_name": "환급금 계산 시작", "progress": "95", "delay_seconds": 0.0}
+      ]
+    }
+  }
+}

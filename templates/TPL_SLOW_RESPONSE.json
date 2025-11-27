@@ -1,0 +1,76 @@
+{
+  "scenario_id": "TPL_SLOW_RESPONSE",
+  "scenario_name": "테스트_지연응답",
+  "description": "타임아웃 및 지연 응답 테스트용 시나리오. 각 단계별 지연 시간이 길게 설정됨.",
+  "user_info": {
+    "name": "조지연",
+    "phone": "01033334444",
+    "birthday": "19850707",
+    "cert_type": "kakao"
+  },
+  "taxpayer_info": {
+    "tin": "990999012345678901",
+    "name": "조지연",
+    "resno": "8507071234567",
+    "reg_no": "4567890123",
+    "tax_office": "강서",
+    "officer_name": "최담당",
+    "officer_phone": "02-5678-9012"
+  },
+  "biz_type": "individual_biz",
+  "refund_result": {
+    "총환급세액": 1500000,
+    "종합소득세환급세액": 1363000,
+    "지방세환급세액": 137000,
+    "창중감_환급액": 0,
+    "중특감_환급액": 0,
+    "고용증대_환급액": 1000000,
+    "사회보험료_환급액": 500000,
+    "통합고용_환급액": 0,
+    "refundAmt_SVI": 500000.0,
+    "감면Only추가구제": false,
+    "감면Only환급가능금액": 0.0,
+    "고용보험조회필요": false,
+    "전자신고가능여부": true,
+    "최근계산연도": 2024,
+    "터칭콜반영": false,
+    "터칭콜검토필요": {
+      "2019": false,
+      "2020": false,
+      "2021": false,
+      "2022": false,
+      "2023": false,
+      "2024": true
+    },
+    "사업장": {
+      "2024": {
+        "4567890123": {
+          "사업자등록번호": "456-78-90123",
+          "상호": "조지연테크",
+          "업종": "정보통신업",
+          "개업일": "2019-09-01"
+        }
+      }
+    }
+  },
+  "version_info": {
+    "연도": "2024",
+    "버전": "1.5"
+  },
+  "cert_request_config": {
+    "success": true,
+    "delay_seconds": 3.0
+  },
+  "cert_response_config": {
+    "success": true,
+    "delay_seconds": 5.0
+  },
+  "check_config": {
+    "success": true,
+    "delay_seconds": 3.0
+  },
+  "load_config": {
+    "success": true,
+    "delay_seconds": 10.0
+  }
+}

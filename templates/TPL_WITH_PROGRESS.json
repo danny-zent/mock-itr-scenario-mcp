@@ -1,0 +1,87 @@
+{
+  "scenario_id": "TPL_WITH_PROGRESS",
+  "scenario_name": "테스트_진행률전송",
+  "description": "SQS 진행률 전송이 포함된 테스트 시나리오",
+  
+  "user_info": {
+    "name": "배진행",
+    "phone": "01055556666",
+    "birthday": "19900909",
+    "cert_type": "kakao"
+  },
+  
+  "taxpayer_info": {
+    "tin": "101010123456789012",
+    "name": "배진행",
+    "resno": "900909-1234567",
+    "reg_no": "5678901234",
+    "biz_type": "개인사업자",
+    "tax_office": "진행세무서",
+    "officer_name": "진행담당관",
+    "officer_phone": "02-5555-6666"
+  },
+  
+  "refund_result": {
+    "총환급세액": 3000000,
+    "종합소득세_환급액": 2700000,
+    "지방소득세_환급액": 300000,
+    "창중감_환급액": 1000000,
+    "중특감_환급액": 500000,
+    "고용증대_환급액": 700000,
+    "사회보험료_환급액": 300000,
+    "통합고용_환급액": 200000,
+    "감면Only추가구제": false,
+    "감면Only환급가능금액": 0,
+    "고용보험조회필요": false,
+    "전자신고가능여부": true,
+    "터칭콜검토필요": {},
+    "사업장": {
+      "0": {
+        "사업자등록번호": "5678901234",
+        "상호": "배진행스토어",
+        "업종": "전자상거래",
+        "개업일": "2021-03-15",
+        "사업장상태": "계속사업자",
+        "환급액": 3000000
+      }
+    }
+  },
+  
+  "version_info": {
+    "연도": "2024",
+    "버전": "3.2.0",
+    "gcexcel_버전": "2.1.0"
+  },
+  
+  "cert_request_config": {
+    "success": true,
+    "delay_seconds": 0.5
+  },
+  
+  "cert_response_config": {
+    "success": true,
+    "delay_seconds": 1.0
+  },
+  
+  "check_config": {
+    "success": true,
+    "delay_seconds": 0.5
+  },
+  
+  "load_config": {
+    "success": true,
+    "delay_seconds": 2.0,
+    "progress_config": {
+      "enabled": true,
+      "queue_name": "refund-search.fifo",
+      "send_on_complete": true,
+      "send_on_error": true,
+      "steps": [
+        {"step_name": "사업체 목록 수집 시작", "progress": "1", "delay_seconds": 0.0},
+        {"step_name": "연말정산 자료 수집 시작", "progress": "80", "delay_seconds": 0.0},
+        {"step_name": "환급금 계산 시작", "progress": "95", "delay_seconds": 0.0},
+        {"step_name": "환급금 계산 완료", "progress": "100", "delay_seconds": 0.0}
+      ]
+    }
+  }
+}

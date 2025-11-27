@@ -1,0 +1,76 @@
+{
+  "scenario_id": "TPL_NORMAL_BIZ_LOW",
+  "scenario_name": "정상_개인사업자_소액환급",
+  "description": "개인사업자 10만원 미만 소액 환급 케이스. 사회보험료 세액공제만 해당.",
+  "user_info": {
+    "name": "이소액",
+    "phone": "01098765432",
+    "birthday": "19850320",
+    "cert_type": "naver"
+  },
+  "taxpayer_info": {
+    "tin": "220222345678901234",
+    "name": "이소액",
+    "resno": "8503201234567",
+    "reg_no": "2345678901",
+    "tax_office": "서초",
+    "officer_name": "김담당",
+    "officer_phone": "02-2345-6789"
+  },
+  "biz_type": "individual_biz",
+  "refund_result": {
+    "총환급세액": 85000,
+    "종합소득세환급세액": 77000,
+    "지방세환급세액": 8000,
+    "창중감_환급액": 0,
+    "중특감_환급액": 0,
+    "고용증대_환급액": 0,
+    "사회보험료_환급액": 85000,
+    "통합고용_환급액": 0,
+    "refundAmt_SVI": 85000.0,
+    "감면Only추가구제": false,
+    "감면Only환급가능금액": 0.0,
+    "고용보험조회필요": false,
+    "전자신고가능여부": true,
+    "최근계산연도": 2024,
+    "터칭콜반영": false,
+    "터칭콜검토필요": {
+      "2019": false,
+      "2020": false,
+      "2021": false,
+      "2022": false,
+      "2023": false,
+      "2024": false
+    },
+    "사업장": {
+      "2024": {
+        "2345678901": {
+          "사업자등록번호": "234-56-78901",
+          "상호": "이소액가게",
+          "업종": "음식점업",
+          "개업일": "2022-06-01"
+        }
+      }
+    }
+  },
+  "version_info": {
+    "연도": "2024",
+    "버전": "1.5"
+  },
+  "cert_request_config": {
+    "success": true,
+    "delay_seconds": 0.5
+  },
+  "cert_response_config": {
+    "success": true,
+    "delay_seconds": 1.0
+  },
+  "check_config": {
+    "success": true,
+    "delay_seconds": 0.5
+  },
+  "load_config": {
+    "success": true,
+    "delay_seconds": 1.5
+  }
+}
