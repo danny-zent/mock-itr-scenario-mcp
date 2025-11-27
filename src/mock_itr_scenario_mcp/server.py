@@ -52,54 +52,57 @@ logger = logging.getLogger(__name__)
 # Create MCP server instance
 server = Server("mock-itr-scenario")
 
-# Template storage (loaded from mock-itrLoader project)
+# Template storage (loaded from mock-itrLoader Lambda)
 TEMPLATES: dict[str, dict[str, Any]] = {}
-MOCK_ITR_LOADER_PATH: Path | None = None
+MOCK_ITR_LOADER_FUNCTION_NAME: str | None = None
 
 
-def get_mock_itr_loader_path() -> Path:
-    """Get mock-itrLoader project path from environment."""
-    global MOCK_ITR_LOADER_PATH
-    if MOCK_ITR_LOADER_PATH is None:
-        path = os.environ.get("MOCK_ITR_LOADER_PATH", "")
-        if not path:
-            # Try to find it relative to this project
-            current_dir = Path(__file__).parent.parent.parent.parent
-            possible_path = current_dir / "mock-itrLoader"
-            if possible_path.exists():
-                MOCK_ITR_LOADER_PATH = possible_path
-            else:
-                raise ValueError(
-                    "MOCK_ITR_LOADER_PATH environment variable not set. "
-                    "Please set it to the mock-itrLoader project path."
+def get_mock_itr_loader_function_name() -> str:
+    """Get mock-itrLoader Lambda function name from environment."""
+    global MOCK_ITR_LOADER_FUNCTION_NAME
+    if MOCK_ITR_LOADER_FUNCTION_NAME is None:
+        function_name = os.environ.get("MOCK_ITR_LOADER_FUNCTION_NAME", "")
+        if not function_name:
+            # Legacy support: MOCK_ITR_LOADER_PATH를 Lambda 함수 이름으로 사용
+            function_name = os.environ.get("MOCK_ITR_LOADER_PATH", "")
+            if not function_name:
+                logger.warning(
+                    "MOCK_ITR_LOADER_FUNCTION_NAME environment variable not set. "
+                    "Template loading will be disabled."
                 )
-        else:
-            MOCK_ITR_LOADER_PATH = Path(path)
-    return MOCK_ITR_LOADER_PATH
+                return ""
+        MOCK_ITR_LOADER_FUNCTION_NAME = function_name
+    return MOCK_ITR_LOADER_FUNCTION_NAME
 
 
 def load_templates() -> dict[str, dict[str, Any]]:
-    """Load templates from mock-itrLoader project."""
+    """Load templates from mock-itrLoader Lambda function."""
     global TEMPLATES
     if TEMPLATES:
         return TEMPLATES
     
+    function_name = get_mock_itr_loader_function_name()
+    if not function_name:
+        logger.warning("Lambda function name not configured. Templates will not be loaded.")
+        return TEMPLATES
+    
     try:
-        mock_path = get_mock_itr_loader_path()
-        templates_dir = mock_path / "mock_lambda" / "templates"
-        
-        if not templates_dir.exists():
-            logger.warning(f"Templates directory not found: {templates_dir}")
-            return TEMPLATES
-        
-        for template_file in templates_dir.glob("TPL_*.json"):
-            template_id = template_file.stem
-            with open(template_file, "r", encoding="utf-8") as f:
-                TEMPLATES[template_id] = json.load(f)
-                logger.info(f"Loaded template: {template_id}")
+        # AWS Lambda를 통해 템플릿 로드 (향후 구현)
+        # 현재는 템플릿이 비어있어도 시나리오 생성은 가능하므로 경고만 출력
+        logger.info(f"Template loading from Lambda function: {function_name} (not implemented yet)")
+        # TODO: Lambda 함수를 호출하여 템플릿 목록 가져오기
+        # import boto3
+        # lambda_client = boto3.client('lambda')
+        # response = lambda_client.invoke(
+        #     FunctionName=function_name,
+        #     InvocationType='RequestResponse',
+        #     Payload=json.dumps({'action': 'list_templates'})
+        # )
+        # templates_data = json.loads(response['Payload'].read())
+        # TEMPLATES.update(templates_data)
         
     except Exception as e:
-        logger.error(f"Failed to load templates: {e}")
+        logger.error(f"Failed to load templates from Lambda: {e}")
     
     return TEMPLATES
 
