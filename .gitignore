@@ -53,4 +53,7 @@ Thumbs.db
 
 # Logs
 *.log
+
+# Templates (keep directory, ignore example files if needed)
+# templates/*.json
 .cursor/

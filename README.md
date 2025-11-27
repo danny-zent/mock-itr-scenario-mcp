@@ -67,7 +67,6 @@ pip install -e .
       "args": ["-m", "mock_itr_scenario_mcp.server"],
       "cwd": "/path/to/mock-itr-scenario-mcp",
       "env": {
-        "MOCK_ITR_LOADER_FUNCTION_NAME": "dv-ItrLoader",
         "MOCK_ITR_MODEL_YEAR": "2024",
         "DYNAMODB_ENDPOINT_URL": "http://localhost:8000"
       }
@@ -88,7 +87,6 @@ pip install -e .
       "args": ["-m", "mock_itr_scenario_mcp.server"],
       "cwd": "/path/to/mock-itr-scenario-mcp",
       "env": {
-        "MOCK_ITR_LOADER_FUNCTION_NAME": "dv-ItrLoader",
         "MOCK_ITR_MODEL_YEAR": "2024"
       }
     }
@@ -100,8 +98,6 @@ pip install -e .
 
 | 변수 | 설명 | 기본값 |
 |------|------|--------|
-| `MOCK_ITR_LOADER_FUNCTION_NAME` | mock-itrLoader Lambda 함수 이름 (또는 ARN) | (선택) |
-| `MOCK_ITR_LOADER_PATH` | (레거시) Lambda 함수 이름 (MOCK_ITR_LOADER_FUNCTION_NAME 우선) | (선택) |
 | `MOCK_ITR_MODEL_YEAR` | 귀속연도 (attr_yr) | `2024` |
 | `DYNAMODB_ENDPOINT_URL` | DynamoDB 엔드포인트 URL | (AWS 기본) |
 | `SCENARIO_TABLE_NAME` | DynamoDB 테이블 이름 | `mock-itr-scenarios` |
@@ -110,6 +106,8 @@ pip install -e .
 ## 사용 예시
 
 ### 템플릿 목록 조회
+
+템플릿은 프로젝트 루트의 `templates/` 디렉토리에 `TPL_*.json` 형식으로 저장됩니다.
 
 ```
 사용자: "사용 가능한 템플릿 목록 보여줘"
