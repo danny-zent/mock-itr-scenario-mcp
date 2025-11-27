@@ -16,7 +16,7 @@ from mcp.types import (
     ResourceTemplate,
 )
 
-from .models.enums import BizType, CertType, ErrorType, ERROR_MESSAGES, ERROR_MESSAGES_ALT, ERROR_DEFAULT_ACTION, ActionType, CorpType, ProgressValue, ERROR_FREQUENCY
+from .models.enums import BizType, CertType, ErrorType, ERROR_MESSAGES, ERROR_MESSAGES_ALT, ERROR_DEFAULT_ACTION, ActionType, CorpType, ProgressValue, ERROR_FREQUENCY, get_error_message
 from .models.scenario import (
     ScenarioConfig,
     UserInfo,
@@ -1046,9 +1046,9 @@ async def handle_scenario_build_error(arguments: dict[str, Any]) -> list[TextCon
             }, ensure_ascii=False, indent=2)
         )]
     
-    # 기본 메시지 사용
+    # 기본 메시지 사용 (환경변수 고려)
     if not error_msg:
-        error_msg = ERROR_MESSAGES.get(error_type, "알 수 없는 오류가 발생했습니다.")
+        error_msg = get_error_message(error_type)
     
     # 기본 액션 사용
     if not action_str:
@@ -1379,7 +1379,7 @@ async def handle_error_types_list(arguments: dict[str, Any]) -> list[TextContent
         frequency = ERROR_FREQUENCY.get(error_type, 0)
         error_types.append({
             "type": error_type.value,
-            "message": ERROR_MESSAGES.get(error_type, ""),
+            "message": get_error_message(error_type),
             "alt_messages": alt_messages,
             "default_action": default_action.value,
             "frequency": frequency,  # 샘플 데이터 기반 빈도
@@ -1772,7 +1772,7 @@ async def read_resource(uri: str) -> str:
             default_action = ERROR_DEFAULT_ACTION.get(error_type, ActionType.LOAD)
             error_types.append({
                 "type": error_type.value,
-                "message": ERROR_MESSAGES.get(error_type, ""),
+                "message": get_error_message(error_type),
                 "default_action": default_action.value,
             })
         return json.dumps({"error_types": error_types}, ensure_ascii=False, indent=2)

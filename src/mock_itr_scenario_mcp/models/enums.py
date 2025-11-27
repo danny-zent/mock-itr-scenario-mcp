@@ -31,7 +31,7 @@ class ErrorType(str, Enum):
     """에러 타입 (샘플 데이터 기반 - 빈도순)"""
     # Load 액션 에러 (샘플 데이터 기반 - 16,338건)
     NO_BIZ = "사업자없음오류"
-    # 기환급자 (208건)
+    # 기환급자: 같은 귀속년도에 이미 환급을 받은 사람이 다시 조회(load) 액션을 할 때 발생 (208건)
     ALREADY_REFUNDED = "기환급자"
     # 세션만료 (106건)
     SESSION_EXPIRED = "세션만료"
@@ -77,7 +77,8 @@ class ProgressValue(str, Enum):
 ERROR_MESSAGES: dict[ErrorType, str] = {
     # Load 액션 에러 (샘플 데이터 기반)
     ErrorType.NO_BIZ: "처리중 예외가 발생하였습니다. [ 사업자 변경대상이 아님 ]",  # 10,140건
-    ErrorType.ALREADY_REFUNDED: "2024",  # 208건
+    # ALREADY_REFUNDED는 get_error_message() 함수에서 동적으로 처리
+    ErrorType.ALREADY_REFUNDED: "2024",  # 208건 - 같은 귀속년도에 이미 환급받은 경우 (기본값, 실제는 get_error_message에서 환경변수 사용)
     ErrorType.SESSION_EXPIRED: "중복접속으로 세션이 만료되었습니다.",  # 69건
     ErrorType.INVALID_SSN: "사업자등록번호/주민등록번호을(를) 확인하세요.",  # 17건
     ErrorType.LOGIN_ERROR: "[IDType]JUMIN_ID가 아닙니다.None",  # 2건
@@ -124,6 +125,20 @@ ERROR_DEFAULT_ACTION: dict[ErrorType, ActionType] = {
     ErrorType.AUTH_NOT_COMPLETE: ActionType.CERT_RESPONSE,
     ErrorType.LOGIN_FAILED: ActionType.CHECK,
 }
+
+
+def get_error_message(error_type: ErrorType) -> str:
+    """에러 타입에 따른 메시지 반환 (환경변수 고려)"""
+    import os
+    
+    # 기환급자 에러는 환경변수에서 귀속연도를 가져옴
+    if error_type == ErrorType.ALREADY_REFUNDED:
+        model_year = os.environ.get("MOCK_ITR_MODEL_YEAR", "2024")
+        return model_year
+    
+    # 나머지는 기본 메시지 사용
+    return ERROR_MESSAGES.get(error_type, "알 수 없는 오류가 발생했습니다.")
+
 
 # 에러 빈도 통계 (샘플 데이터 기반)
 ERROR_FREQUENCY: dict[ErrorType, int] = {
